@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>IKONIC SOLUTION | Registration Page</title>
+    <title>Pharmacy Management | Registration Page</title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -18,12 +18,14 @@
 
 <body class="hold-transition register-page">
     <div class="register-box">
-        <div class="register-logo">
-            <a href="{{route('register')}}"><b>IKONIC SOLUTION</b></a>
-        </div>
 
-        <div class="card">
-            <div class="card-body register-card-body">
+
+
+        <div class="card card-outline card-primary">
+            <div class="card-header text-center">
+                <a href="{{route('register')}}"><b>Pharmacy Management</b></a>
+            </div>
+            <div class="card-body">
                 <p class="login-box-msg">Register a new membership</p>
 
                 <form method="POST" action="{{ route('register') }}">
@@ -82,7 +84,6 @@
                 </form>
 
                 <div class="social-auth-links text-center">
-                    <p>- OR -</p>
                     <a href="#" class="btn btn-block btn-primary">
                         <i class="fab fa-facebook mr-2"></i>
                         Sign up using Facebook
@@ -91,14 +92,12 @@
                         <i class="fab fa-google-plus mr-2"></i>
                         Sign up using Google+
                     </a>
-                </div>
+                </div><hr>
 
-                <a href="{{ route('login') }}" class="text-center">I already have an account</a>
+                <a href="{{ route('login') }}" class="btn btn-block btn-danger">I already have an account</a>
             </div>
-            <!-- /.form-box -->
-        </div><!-- /.card -->
+        </div>
     </div>
-    <!-- /.register-box -->
 
     <!-- jQuery -->
     <script src="{{ asset('/admin/plugins/jquery/jquery.min.js') }}"></script>

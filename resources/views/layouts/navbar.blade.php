@@ -10,6 +10,12 @@
         <li class="nav-item d-none d-sm-inline-block">
             <a href="#" class="nav-link">Contact</a>
         </li>
+        <div class="preview-item-content">
+            <form method="post" action="{{ route('logout') }}">
+                @csrf
+                <button type="submit" class="btn btn-outline-primary mx-3 mt-2 d-block">LogOut</button>
+            </form>
+        </div>
     </ul>
 
     <!-- Right navbar links -->

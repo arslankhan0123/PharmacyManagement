@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>IKONIC SOLUTION | Log in</title>
+    <title>Pharmacy Management | Log in</title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -18,12 +18,12 @@
 
 <body class="hold-transition login-page">
     <div class="login-box">
-        <div class="login-logo">
-            <a href="{{route('login')}}"><b>IKONIC SOLUTION</b></a>
-        </div>
-        <!-- /.login-logo -->
-        <div class="card">
-            <div class="card-body login-card-body">
+
+        <div class="card card-outline card-primary">
+            <div class="card-header text-center">
+            <a href="{{route('login')}}"><b>Pharmacy Management</b></a>
+            </div>
+            <div class="card-body">
                 <p class="login-box-msg">Sign in to start your session</p>
 
                 <form method="POST" action="{{ route('login') }}">
@@ -63,25 +63,23 @@
                     </div>
                 </form>
 
-                <div class="social-auth-links text-center mb-3">
-                    <p>- OR -</p>
+                <div class="social-auth-links text-center mt-2 mb-3">
                     <a href="#" class="btn btn-block btn-primary">
                         <i class="fab fa-facebook mr-2"></i> Sign in using Facebook
                     </a>
                     <a href="#" class="btn btn-block btn-danger">
                         <i class="fab fa-google-plus mr-2"></i> Sign in using Google+
                     </a>
-                </div>
-                <!-- /.social-auth-links -->
+                </div><hr>
 
                 <p class="mb-1">
-                    <a href="{{ route('password.request') }}">I forgot my password</a>
+                    <a href="{{ route('password.request') }}" class="btn btn-block btn-primary">I forgot my password</a>
                 </p>
                 <p class="mb-0">
-                    <a href="{{route('register')}}" class="text-center">Register a new account</a>
+                    <a href="{{route('register')}}" class="btn btn-block btn-danger">Register a new account</a>
                 </p>
             </div>
-            <!-- /.login-card-body -->
+            <!-- /.card-body -->
         </div>
     </div>
     <!-- /.login-box -->

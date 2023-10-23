@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>AdminLTE 3 | Dashboard 3</title>
+    <title>Pharmacy Management - Systems</title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -14,16 +14,10 @@
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ asset('/admin/dist/css/adminlte.min.css') }}">
+
+    <!-- Toaster Link -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 </head>
-<!--
-`body` tag options:
-
-  Apply one or more of the following classes to to the body tag
-  to get the desired effect
-
-  * sidebar-collapse
-  * sidebar-mini
--->
 
 <body class="hold-transition sidebar-mini">
     <div class="wrapper">
@@ -31,7 +25,6 @@
         @include('layouts.navbar')
         <!-- /.navbar -->
 
-        <!-- Main Sidebar Container -->
         @include('layouts.Sidebar')
 
         <!-- Content Wrapper. Contains page content -->
@@ -42,17 +35,16 @@
                     <div class="row mb-2">
                         <div class="col-sm-6">
                             <h1 class="m-0">Dashboard</h1>
-                        </div><!-- /.col -->
+                        </div>
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item"><a href="#">Home</a></li>
                                 <li class="breadcrumb-item active">Dashboard</li>
                             </ol>
-                        </div><!-- /.col -->
-                    </div><!-- /.row -->
-                </div><!-- /.container-fluid -->
+                        </div>
+                    </div>
+                </div>
             </div>
-            <!-- /.content-header -->
 
             <!-- Main content -->
             @yield('content')
@@ -69,7 +61,7 @@
 
         <!-- Main Footer -->
         <footer class="main-footer">
-            <strong>Copyright &copy; 2014-2021 <a href="{{url('/dashboard')}}">IKONIC Solution</a>.</strong>
+            <strong>Copyright &copy; 2014-2021 <a href="{{url('/dashboard')}}">Pharmacy Management</a>.</strong>
             All rights reserved.
             <div class="float-right d-none d-sm-inline-block">
                 <b>Version</b> 3.2.0
@@ -96,6 +88,30 @@
     <script src="{{ asset('/admin/dist/js/adminlte.js') }}"></script>
     <!-- AdminLTE for demo purposes -->
     <!-- <script src="{{ asset('/admin/dist/js/demo.js') }}"></script> -->
+
+
+
+
+    <!-- Toaster script -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    @if(Session::has('success'))
+    <script>
+        toastr.options = {
+            "closeButton": true,
+            "progressBar": true
+        }
+        toastr.success("{{session('success')}}")
+    </script>
+    @endif
+    @if(Session::has('error'))
+    <script>
+        toastr.options = {
+            "closeButton": true,
+            "progressBar": true
+        }
+        toastr.error("{{session('error')}}")
+    </script>
+    @endif
 </body>
 
 </html>
