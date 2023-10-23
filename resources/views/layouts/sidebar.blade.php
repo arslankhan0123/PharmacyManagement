@@ -39,12 +39,6 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{route('feedback')}}" class="nav-link">
-                        <i class="nav-icon fas fa-tachometer-alt"></i>
-                        <p>User Feedback</p>
-                    </a>
-                </li>
-                <li class="nav-item">
                     <a href="pages/widgets.html" class="nav-link">
                         <i class="nav-icon fas fa-th"></i>
                         <p>
