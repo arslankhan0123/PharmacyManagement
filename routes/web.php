@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\FeedbackController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,6 +25,16 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
+    
+    Route::group(['prefix' => 'User'], function () {
+        Route::get('/', [UserController::class, 'index'])->name('user');
+        Route::get('/Create', [UserController::class, 'create'])->name('user.create');
+        Route::post('/Store', [UserController::class, 'store'])->name('user.store');
+        Route::get('/Edit/{id}', [UserController::class, 'edit'])->name('user.edit');
+        Route::post('/Store/{id}', [UserController::class, 'update'])->name('user.store');
+        Route::get('/Delete/{id}', [UserController::class, 'delete'])->name('user.delete');
+    });
+
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
