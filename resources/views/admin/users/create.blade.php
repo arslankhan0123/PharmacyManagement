@@ -13,21 +13,21 @@
                         <div class="card-body">
                             <div class="form-group">
                                 <label for="title">Name</label>
-                                <input type="text" name="name" class="form-control" id="name" placeholder="Enter Name">
+                                <input type="text" name="name" value="{{ old('name') }}" class="form-control" id="name" placeholder="Enter Name">
                                 @error('name')
                                 <div class="text-danger">{{ $message }}</div>
                                 @enderror
                             </div>
                             <div class="form-group">
                                 <label for="description">Email</label>
-                                <input type="email" name="email" class="form-control" id="email" placeholder="Enter Email">
+                                <input type="email" name="email" value="{{ old('email') }}" class="form-control" id="email" placeholder="Enter Email">
                                 @error('email')
                                 <div class="text-danger">{{ $message }}</div>
                                 @enderror
                             </div>
                             <div class="form-group">
                                 <label for="description">Password</label>
-                                <input type="password" name="paasword" class="form-control" id="paasword" placeholder="Enter paasword">
+                                <input type="password" name="paasword" value="{{ old('paasword') }}" class="form-control" id="paasword" placeholder="Enter paasword">
                                 @error('password')
                                 <div class="text-danger">{{ $message }}</div>
                                 @enderror
@@ -35,7 +35,8 @@
                             <div class="form-group">
                                 <label>Select User Role</label>
                                 <select class="form-control select2" name="user_role" style="width: 100%;">
-                                    <option value="Admin" selected="selected">Admin</option>
+                                    <option value="" selected="selected">Select User Role</option>
+                                    <option value="Admin">Admin</option>
                                     <option value="Doctor">Doctor</option>
                                     <option value="User">User</option>
                                 </select>

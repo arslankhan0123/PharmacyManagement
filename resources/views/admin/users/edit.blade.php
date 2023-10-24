@@ -28,7 +28,8 @@
                             <div class="form-group">
                                 <label>Select User Role</label>
                                 <select class="form-control select2" name="user_role" style="width: 100%;">
-                                    <option value="Admin" selected="selected">Admin</option>
+                                    <option value="" selected="selected">Select User Role</option>
+                                    <option value="Admin">Admin</option>
                                     <option value="Doctor">Doctor</option>
                                     <option value="User">User</option>
                                 </select>
