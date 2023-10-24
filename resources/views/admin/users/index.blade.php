@@ -34,15 +34,15 @@
                             <td>
                                 @if($user->role == 'Admin')
                                 <!-- <div class="alert" role="alert" style="background-color: #28a745; width:90px;"> -->
-                                <h4  style="color: #28a745;"><b>{{$user->role}}</b></h4>
+                                <h4 style="color: #28a745;"><b>{{$user->role}}</b></h4>
                                 <!-- </div> -->
                                 @elseif($user->role == 'Doctor')
                                 <!-- <div class="alert" role="alert" style="background-color: #ffc107; width:90px;"> -->
-                                    <h4  style="color: #ffc107;"><b>{{$user->role}}</b></h4>
+                                    <h4 style="color: #f1ba59;"><b>{{$user->role}}</b></h4>
                                 <!-- </div> -->
                                 @else
                                 <!-- <div class="alert" role="alert" style="background-color: #dc3545; width:90px;"> -->
-                                    <h4  style="color: #dc3545;"><b>{{$user->role}}</b></h4>
+                                    <h4 style="color: #dc3545;"><b>{{$user->role}}</b></h4>
                                 <!-- </div> -->
                                 @endif
                             </td>
