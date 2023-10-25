@@ -24,6 +24,8 @@
                             <th>Quantity</th>
                             <th>Purchasing Price</th>
                             <th>Selling Price</th>
+                            <th>Expiry Date</th>
+                            <th>Created Date</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -34,9 +36,16 @@
                             <td>{{$medicine->quantity}}</td>
                             <td>{{$medicine->purchasing_price}}</td>
                             <td>{{$medicine->selling_price}}</td>
+                            <td> @if ($medicine->expiry_date)
+                                    {{ date('d F Y', strtotime($medicine->expiry_date)) }}
+                                @else
+                                    N/A
+                                @endif
+                            </td>
+                            <td>{{$medicine->created_at}}</td>
                             <td>
-                                <a href="{{ route('medicine.edit', ['id' => $medicine->id]) }}"><i class="fas fa-edit" style="font-size:20px"></i> Edit</a>&nbsp;&nbsp;&nbsp;
-                                <a href="{{ route('medicine.delete', ['id' => $medicine->id]) }}"><i class="fa fa-trash" style="font-size:20px"></i> Delete</a>
+                                <a href="{{ route('medicine.edit', ['id' => $medicine->id]) }}"><i class="fas fa-edit" style="font-size:20px"></i> </a>&nbsp;&nbsp;&nbsp;
+                                <a href="{{ route('medicine.delete', ['id' => $medicine->id]) }}"><i class="fa fa-trash" style="font-size:20px"></i> </a>
                             </td>
                         </tr>
                         @endforeach

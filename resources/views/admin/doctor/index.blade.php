@@ -35,8 +35,8 @@
                             <td style="color: red;">{{$doctor->role}}</td>
                             <td>{{$doctor->created_at}}</td>
                             <td>
-                                <a href="{{ route('doctor.edit', ['id' => $doctor->id]) }}"><i class="fas fa-edit" style="font-size:20px"></i> Edit</a>&nbsp;&nbsp;&nbsp;
-                                <a href="{{ route('doctor.delete', ['id' => $doctor->id]) }}"><i class="fa fa-trash" style="font-size:20px"></i> Delete</a>
+                                <a href="{{ route('doctor.edit', ['id' => $doctor->id]) }}"><i class="fas fa-edit" style="font-size:20px"></i></a>&nbsp;&nbsp;&nbsp;
+                                <a href="{{ route('doctor.delete', ['id' => $doctor->id]) }}"><i class="fa fa-trash" style="font-size:20px"></i></a>
                             </td>
                         </tr>
                         @endforeach

@@ -27,17 +27,20 @@ class MedicineController extends Controller
             'quantity' => 'required',
             'purchasing_price' => 'required',
             'selling_price' => 'required',
+            'expiry_date' => 'required',
         ];
         $messages = [
             'medicine_name.required' => 'Medicine Name is required.',
             'quantity.required' => 'Quantity is required.',
             'selling_price.required' => 'Selling Price is required.',
+            'expiry_date.required' => 'Expiry Date is required.',
         ];
         $validatedData = $request->validate($rules, $messages);
 
         $medicine = new Medicine();
         $medicine->medicine_name = $request->medicine_name;
         $medicine->quantity = $request->quantity;
+        $medicine->expiry_date = $request->expiry_date;
         $medicine->purchasing_price = $request->purchasing_price;
         $medicine->selling_price = $request->selling_price;
         $medicine->save();
@@ -57,17 +60,20 @@ class MedicineController extends Controller
             'quantity' => 'required',
             'purchasing_price' => 'required',
             'selling_price' => 'required',
+            'expiry_date' => 'required',
         ];
         $messages = [
             'medicine_name.required' => 'Medicine Name is required.',
             'quantity.required' => 'Quantity is required.',
             'selling_price.required' => 'Selling Price is required.',
+            'expiry_date.required' => 'Expiry Date is required.',
         ];
         $validatedData = $request->validate($rules, $messages);
 
         $medicine = Medicine::find($id);
         $medicine->medicine_name = $request->medicine_name;
         $medicine->quantity = $request->quantity;
+        $medicine->expiry_date = $request->expiry_date;
         $medicine->purchasing_price = $request->purchasing_price;
         $medicine->selling_price = $request->selling_price;
         $medicine->save();

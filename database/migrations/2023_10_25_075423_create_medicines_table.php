@@ -17,6 +17,7 @@ return new class extends Migration
             $table->integer('quantity');
             $table->integer('purchasing_price');
             $table->integer('selling_price');
+            $table->date('expiry_date');
             $table->timestamps();
         });
     }

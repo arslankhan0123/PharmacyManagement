@@ -51,6 +51,17 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="description">Expiry Date</label>
+                                        <input type="date" name="expiry_date" value="{{ $medicine->selling_price }}" class="form-control" id="expiry_date" placeholder="Enter expiry_date">
+                                        @error('expiry_date')
+                                        <div class="text-danger">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <div class="card-footer">
                             <button type="submit" class="btn btn-primary">Save</button>
