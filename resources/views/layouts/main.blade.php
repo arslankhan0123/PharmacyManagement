@@ -15,6 +15,9 @@
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ asset('/admin/dist/css/adminlte.min.css') }}">
 
+    <!-- font link w3school share email expiring medicines -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
     <!-- Toaster Link -->
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 </head>

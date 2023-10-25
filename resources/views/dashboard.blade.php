@@ -40,49 +40,6 @@
                         </table>
                     </div>
                 </div>
-                <!-- /.card -->
-
-                <div class="card">
-                    <div class="card-header border-0">
-                        <div class="d-flex justify-content-between">
-                            <h3 class="card-title">Sales</h3>
-                            <a href="javascript:void(0);">View Report</a>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <div class="d-flex">
-                            <p class="d-flex flex-column">
-                                <span class="text-bold text-lg">$18,230.00</span>
-                                <span>Sales Over Time</span>
-                            </p>
-                            <p class="ml-auto d-flex flex-column text-right">
-                                <span class="text-success">
-                                    <i class="fas fa-arrow-up"></i> 33.1%
-                                </span>
-                                <span class="text-muted">Since last month</span>
-                            </p>
-                        </div>
-                        <!-- /.d-flex -->
-
-                        <div class="position-relative mb-4">
-                            <canvas id="sales-chart" height="200"></canvas>
-                        </div>
-
-                        <div class="d-flex flex-row justify-content-end">
-                            <span class="mr-2">
-                                <i class="fas fa-square text-primary"></i> This year
-                            </span>
-
-                            <span>
-                                <i class="fas fa-square text-gray"></i> Last year
-                            </span>
-                        </div>
-                    </div>
-                </div>
-                <!-- /.card -->
-            </div>
-            <!-- /.col-md-6 -->
-            <div class="col-lg-6">
 
                 <div class="card">
                     <div class="card-header border-0">
@@ -188,7 +145,92 @@
                         </table>
                     </div>
                 </div>
-                <!-- /.card -->
+                <!-- <div class="card">
+                    <div class="card-header border-0">
+                        <div class="d-flex justify-content-between">
+                            <h3 class="card-title">Sales</h3>
+                            <a href="javascript:void(0);">View Report</a>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="d-flex">
+                            <p class="d-flex flex-column">
+                                <span class="text-bold text-lg">$18,230.00</span>
+                                <span>Sales Over Time</span>
+                            </p>
+                            <p class="ml-auto d-flex flex-column text-right">
+                                <span class="text-success">
+                                    <i class="fas fa-arrow-up"></i> 33.1%
+                                </span>
+                                <span class="text-muted">Since last month</span>
+                            </p>
+                        </div>
+
+                        <div class="position-relative mb-4">
+                            <canvas id="sales-chart" height="200"></canvas>
+                        </div>
+
+                        <div class="d-flex flex-row justify-content-end">
+                            <span class="mr-2">
+                                <i class="fas fa-square text-primary"></i> This year
+                            </span>
+
+                            <span>
+                                <i class="fas fa-square text-gray"></i> Last year
+                            </span>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+
+
+            <div class="col-lg-6">
+
+                <div class="card">
+                    <div class="card-header border-0">
+                        <h3 class="card-title">Expiring Medicines</h3>
+                        <div class="card-tools">
+                            <a href="#" class="btn btn-tool btn-sm">
+                                <i class="fas fa-download"></i>
+                            </a>
+                            <a href="#" class="btn btn-tool btn-sm">
+                                <i class="fas fa-bars"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="card-body table-responsive p-0">
+                        <table class="table table-striped table-valign-middle">
+                            <thead>
+                                <tr>
+                                    <th>Medicine Name</th>
+                                    <th>Quantity</th>
+                                    <th>Expiring Date</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach($expiring_medicines as $expiring_medicine)
+                                <tr>
+                                    <td>{{$expiring_medicine->medicine_name}}</td>
+                                    <td>{{$expiring_medicine->quantity}}</td>
+                                    <td>
+                                        @if ($expiring_medicine->expiry_date)
+                                            {{ date('d F Y', strtotime($expiring_medicine->expiry_date)) }}
+                                        @else
+                                            N/A
+                                        @endif
+                                    </td>
+                                    <td>
+                                        <li class="nav-item d-none d-sm-inline-block">
+                                            <a href="{{ route('dashboard') }}" class="nav-link"><i class="fa fa-mail-forward" style="font-size:20px"></i></a>
+                                        </li>
+                                    </td>
+                                </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
 
                 <div class="card">
                     <div class="card-header border-0">
@@ -242,10 +284,7 @@
                     </div>
                 </div>
             </div>
-            <!-- /.col-md-6 -->
         </div>
-        <!-- /.row -->
     </div>
-    <!-- /.container-fluid -->
 </div>
 @endsection

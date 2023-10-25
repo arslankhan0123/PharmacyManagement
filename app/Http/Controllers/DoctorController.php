@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use App\Models\Medicine;
 use App\Models\User;
+use Carbon\Carbon;
 
 class DoctorController extends Controller
 {

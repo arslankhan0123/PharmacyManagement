@@ -7,6 +7,8 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\MedicineController;
 use App\Models\User;
+use App\Models\Medicine;
+use Carbon\Carbon;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,12 +26,25 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', function () {
-    $users = User::latest()->take(5)->get();
-    return view('dashboard', compact('users'));
+    $expire_medicines = Medicine::all();
+    $expiring_medicines = [];
+    foreach ($expire_medicines as $expire_medicine) {
+        $db = $expire_medicine->expiry_date;
+        $expiry_date = Carbon::parse($db);
+        $expiry_date->year(date('Y'));
+
+        $diff =  Carbon::now()->diffInDays($expiry_date, false);
+        if ($diff >= 0 && $diff <= 7) {
+            $expiring_medicines[] = $expire_medicine;
+        }
+    }
+    
+    $users = User::latest()->take(4)->get();
+    return view('dashboard', compact('users', 'expiring_medicines'));
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
-    
+
     Route::group(['prefix' => 'User'], function () {
         Route::get('/', [UserController::class, 'index'])->name('user');
         Route::get('/Create', [UserController::class, 'create'])->name('user.create');
@@ -60,7 +75,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
