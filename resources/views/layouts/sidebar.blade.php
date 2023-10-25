@@ -33,7 +33,7 @@
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 <li class="nav-item">
-                    <a href="#" class="nav-link active">
+                    <a href="{{route('dashboard')}}" class="nav-link active">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>Dashboard</p>
                     </a>
@@ -42,6 +42,18 @@
                     <a href="{{route('user')}}" class="nav-link">
                         <i class="nav-icon fas fa-users"></i>
                         <p>User</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{route('doctor')}}" class="nav-link">
+                        <i class="nav-icon fas fa-clinic-medical"></i>
+                        <p>Doctors</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{route('medicine')}}" class="nav-link">
+                    <i class='nav-icon fas fa-capsules' style='font-size:20px'></i>
+                        <p>Medicine</p>
                     </a>
                 </li>
             </ul>
