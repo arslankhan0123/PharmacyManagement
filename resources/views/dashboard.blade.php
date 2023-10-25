@@ -222,7 +222,7 @@
                                     </td>
                                     <td>
                                         <li class="nav-item d-none d-sm-inline-block">
-                                            <a href="{{ route('dashboard') }}" class="nav-link"><i class="fa fa-mail-forward" style="font-size:20px"></i></a>
+                                            <a href="{{ route('expiring.medicine', ['id' => $expiring_medicine->id]) }}" class="nav-link"><i class="fa fa-mail-forward" style="font-size:20px"></i></a>
                                         </li>
                                     </td>
                                 </tr>

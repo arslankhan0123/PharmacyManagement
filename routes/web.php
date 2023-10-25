@@ -38,7 +38,7 @@ Route::get('/dashboard', function () {
             $expiring_medicines[] = $expire_medicine;
         }
     }
-    
+
     $users = User::latest()->take(4)->get();
     return view('dashboard', compact('users', 'expiring_medicines'));
 })->middleware(['auth', 'verified'])->name('dashboard');
@@ -61,6 +61,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/Edit/{id}', [MedicineController::class, 'edit'])->name('medicine.edit');
         Route::post('/Update/{id}', [MedicineController::class, 'update'])->name('medicine.update');
         Route::get('/Delete/{id}', [MedicineController::class, 'delete'])->name('medicine.delete');
+        Route::get('/ExpiringMedicine/{id}', [MedicineController::class, 'ExpiringMedicine'])->name('expiring.medicine');
     });
 
     Route::group(['prefix' => 'Doctor'], function () {

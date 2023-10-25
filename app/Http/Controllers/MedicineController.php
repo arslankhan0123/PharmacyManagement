@@ -6,6 +6,9 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Medicine;
 use App\Models\User;
+use App\Jobs\ExpiringMedicineJob;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\ExpiringMedicine;
 
 class MedicineController extends Controller
 {
@@ -85,5 +88,19 @@ class MedicineController extends Controller
         $medicine = Medicine::find($id);
         $medicine->delete();
         return redirect('/Medicine')->with('error', 'Medicine deleted successfully!');
+    }
+
+    public function ExpiringMedicine($id)
+    {
+        $medicine = Medicine::find($id);
+        $email = 'arslan@gmail.com';
+        $input = [
+            'Employee'=>$medicine->name,
+            'Title' => $medicine->name,
+            'LeaveType'=>$medicine->name,
+            'message'=>'Employee Leave Created Successfully'];
+        // Mail::to($email)->send(new ExpiringMedicine($input));
+        dispatch(new ExpiringMedicineJob($email));
+        return redirect('/dashboard')->with('success', 'Email sent successfully!');
     }
 }
