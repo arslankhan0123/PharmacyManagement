@@ -23,12 +23,29 @@ class UserController extends Controller
 
     public function store(Request $request)
     {
+        // Put values in session
+        $credentials = [
+            'user_name' => $request->user_name,
+            'email' => $request->email,
+            'password' => $request->password,
+        ];
+        $redirect_url = [
+            'url' => url('driver'),
+        ];
+        session()->put('redirect_url', $redirect_url);
+        session()->put('credentials', $credentials);
+        // Get session data
+        $credentials = session('credentials');
+        // Forget session value
+        session()->forget('credentials');
+
+        
         $rules = [
             'name' => 'required',
             'email' => 'required|email|unique:users,email',
             'user_role' => 'required',
         ];
-        
+
         $messages = [
             'name.required' => 'Name is required.',
             'email.required' => 'Email is required.',
@@ -36,9 +53,9 @@ class UserController extends Controller
             'email.unique' => 'The email address is already in use.',
             'user_role.required' => 'User Role is required.',
         ];
-        
+
         $validatedData = $request->validate($rules, $messages);
-        
+
 
         $user = new User();
         $user->name =  $request->name;
@@ -58,9 +75,9 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
         $rules = [
-            'name' => 'required', 
-            'email' => 'required',  
-            'user_role' => 'required', 
+            'name' => 'required',
+            'email' => 'required',
+            'user_role' => 'required',
         ];
         $messages = [
             'name.required' => 'Name is required.',
