@@ -93,14 +93,16 @@ class MedicineController extends Controller
     public function ExpiringMedicine($id)
     {
         $medicine = Medicine::find($id);
-        $email = 'arslan@gmail.com';
+        // $email = 'arslan@gmail.com';
+        $emails = ['arslan@gmail.com', 'another@example.com', 'more@example.com'];
         $input = [
             'Employee'=>$medicine->name,
             'Title' => $medicine->name,
             'LeaveType'=>$medicine->name,
             'message'=>'Employee Leave Created Successfully'];
         // Mail::to($email)->send(new ExpiringMedicine($input));
-        dispatch(new ExpiringMedicineJob($email));
+        // dispatch(new ExpiringMedicineJob($email));
+        dispatch(new ExpiringMedicineJob($emails, $medicine));
         return redirect('/dashboard')->with('success', 'Email sent successfully!');
     }
 }

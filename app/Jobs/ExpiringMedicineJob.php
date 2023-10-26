@@ -14,15 +14,17 @@ use Illuminate\Support\Facades\Mail;
 class ExpiringMedicineJob implements ShouldQueue
 {
     protected $sendEmail;
+    protected $medicine;
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
     /**
      * Create a new job instance.
      */
-    public function __construct($sendEmail)
+    public function __construct($sendEmail, $medicine)
     {
-        // dd($sendEmail);
+        // dd($sendEmail, $medicine);
         $this->sendEmail = $sendEmail;
+        $this->medicine = $medicine;
     }
 
     /**
@@ -32,6 +34,7 @@ class ExpiringMedicineJob implements ShouldQueue
     {
         // $email = new ExpiringMedicine();
         // Mail::to($this->sendEmail)->send($email);
-        Mail::to($this->sendEmail)->send(new ExpiringMedicine());
+        $medicineDetails = $this->medicine; // Assuming $this->medicine contains the medicine details
+        Mail::to($this->sendEmail)->send(new ExpiringMedicine($medicineDetails));
     }
 }
