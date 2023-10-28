@@ -8,7 +8,7 @@
                     <div class="card-header">
                         <h3 class="card-title">Edit User</h3>
                     </div>
-                    <form id="userForm" action="{{url('User/Store/'. $user->id)}}" method="post">
+                    <form id="userForm" action="{{url('User/Update/'. $user->id)}}" method="post">
                         @csrf
                         <div class="card-body">
                             <div class="form-group">
