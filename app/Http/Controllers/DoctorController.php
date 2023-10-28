@@ -58,14 +58,15 @@ class DoctorController extends Controller
     {
         $rules = [
             'name' => 'required',
-            'email' => 'required|email|unique:users,email',
+            'email' => 'required|email',
+            // 'email' => 'required|email|unique:users,email',
         ];
         
         $messages = [
             'name.required' => 'Name is required.',
             'email.required' => 'Email is required.',
             'email.email' => 'Please enter a valid email address.',
-            'email.unique' => 'The email address is already in use.',
+            // 'email.unique' => 'The email address is already in use.',
         ];
         
         $validatedData = $request->validate($rules, $messages);
