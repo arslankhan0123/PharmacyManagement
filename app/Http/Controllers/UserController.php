@@ -37,6 +37,7 @@ class UserController extends Controller
         // Get session data
         $credentials = session('credentials');
         // Forget session value
+        // Forget session value
         session()->forget('credentials');
 
         
